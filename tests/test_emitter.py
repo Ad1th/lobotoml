@@ -1,9 +1,9 @@
 """Tests for Brainfuck arithmetic emitters and macros."""
 
 import unittest
-from neurofuck.compiler.memory import TapeMemoryManager
-from neurofuck.compiler.bf_emitter import BrainfuckEmitter
-from neurofuck.vm.fast_vm import FastBrainfuckVM
+from lobotoml.compiler.memory import TapeMemoryManager
+from lobotoml.compiler.bf_emitter import BrainfuckEmitter
+from lobotoml.vm.fast_vm import FastBrainfuckVM
 
 
 class TestEmitter(unittest.TestCase):

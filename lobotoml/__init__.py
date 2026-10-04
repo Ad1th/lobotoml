@@ -1,4 +1,7 @@
-"""Neurofuck: A tiny neural-network inference system compiled into Brainfuck."""
+"""LobotoML: Neural network inference with zero frontal lobe capacity.
+
+A tiny neural-network inference system compiled into Brainfuck.
+"""
 
 from .nn import (
     Sequential,
@@ -13,7 +16,7 @@ from .nn import (
     float_to_fixed,
     fixed_to_float,
 )
-from .compiler import NeurofuckCompiler, TapeMemoryManager, BrainfuckOptimizer
+from .compiler import LobotoMLCompiler, NeurofuckCompiler, TapeMemoryManager, BrainfuckOptimizer
 from .vm import BrainfuckVM, FastBrainfuckVM, VMConfig, VMResult
 from .ir import IRProgram, LayerVisualizer
 
@@ -30,6 +33,7 @@ __all__ = [
     "QuantizedModel",
     "float_to_fixed",
     "fixed_to_float",
+    "LobotoMLCompiler",
     "NeurofuckCompiler",
     "TapeMemoryManager",
     "BrainfuckOptimizer",

@@ -1,4 +1,4 @@
-"""Neural network primitives and fixed-point quantization for neurofuck."""
+"""Neural network primitives and fixed-point quantization for lobotoml."""
 
 from .activations import Activation, ReLU, Sigmoid, HardSigmoid, Linear, Step, get_activation
 from .layers import Layer, Dense

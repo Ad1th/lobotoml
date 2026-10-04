@@ -1,9 +1,11 @@
-# neurofuck 🧠💻
+# lobotoml 🧠✂️
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python: 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Equivalence: 100%](https://img.shields.io/badge/Equivalence-100%25%20Bit--Exact-brightgreen.svg)]()
+[![Brain Capacity: 0%](https://img.shields.io/badge/Frontal%20Lobe-0%25-red.svg)]()
 
+> **LobotoML**: *Neural network inference with zero frontal lobe capacity.*
 > A research and engineering project demonstrating the compilation and deterministic fixed-point execution of neural network inference in **Brainfuck**.
 
 ```
@@ -13,7 +15,7 @@ Python Trains Neural Network Normally
                ↓
     Quantize into Fixed-Point
                ↓
-Neurofuck Intermediate Representation (NIR)
+LobotoML Intermediate Representation (LIR)
                ↓
 Dual-Rail Memory Allocator & CodeGen
                ↓
@@ -33,12 +35,12 @@ Brainfuck VM Executes Inference
 ### Why this project exists
 Modern deep learning systems rely on massive hardware abstraction stacks (CUDA, TensorRT, BLAS, specialized silicon like TPUs). While effective for throughput, this conceals the fundamental computational nature of neural inference. 
 
-**neurofuck** explores a fundamental question in theoretical computer science and compilation:
+**lobotoml** explores a fundamental question in theoretical computer science and compilation:
 
 > *Can neural-network inference be compiled into the simplest possible Turing-complete computational model operating under extreme constraints (1D memory tape, 8 instructions, integer-only arithmetic, no random-access registers)?*
 
-### What neurofuck is NOT
-- **neurofuck is NOT a practical ML deployment runtime.** Brainfuck is computationally inefficient, with execution latencies orders of magnitude higher than native CPU SIMD instructions.
+### What lobotoml is NOT
+- **lobotoml is NOT a practical ML deployment runtime.** Brainfuck is computationally inefficient, with execution latencies orders of magnitude higher than native CPU SIMD instructions.
 - The objective of this project is to demonstrate **rigorous compilation theory**, **fixed-point numerical preservation**, **dual-rail memory safety**, and **bit-exact equivalence between continuous floating-point networks and esoteric bytecode**.
 
 ---
@@ -57,13 +59,13 @@ Brainfuck provides only **8 primitive instructions**: `>`, `<`, `+`, `-`, `.`, `
 
 ## 🏗️ Architecture & Compilation Pipeline
 
-Neurofuck addresses these challenges through a multi-stage lowering pipeline:
+LobotoML addresses these challenges through a multi-stage lowering pipeline:
 
 ```mermaid
 flowchart TD
     A["Python NN Training (NumPy)"] --> B["Continuous Weights & Biases"]
     B --> C["Quantization Engine (Scale S)"]
-    C --> D["Neurofuck IR (NIR) Graph"]
+    C --> D["LobotoML IR (LIR) Graph"]
     D --> E["Dual-Rail Tape Memory Allocator"]
     E --> F["Brainfuck Macro Emitter"]
     F --> G["Peephole Optimizer (+- cancellation, >< pruning)"]
@@ -98,8 +100,8 @@ $$\text{Fixed}(x) = \lfloor x \cdot S + 0.5 \rfloor$$
 
 ```bash
 # Clone repository
-git clone https://github.com/your-org/neurofuck.git
-cd neurofuck
+git clone https://github.com/Ad1th/lobotoml.git
+cd lobotoml
 
 # Install in editable mode
 pip install -e .
@@ -110,7 +112,7 @@ pip install -e .
 Train a 2-4-1 Multi-Layer Perceptron on the classic non-linear XOR problem:
 
 ```bash
-neurofuck train --dataset xor --output models/xor.json --hidden 4 --epochs 5000 --lr 0.1
+lobotoml train --dataset xor --output models/xor.json --hidden 4 --epochs 5000 --lr 0.1
 ```
 
 ### 2. Compile Model to Brainfuck
@@ -118,7 +120,7 @@ neurofuck train --dataset xor --output models/xor.json --hidden 4 --epochs 5000 
 Compile the trained JSON weights into an optimized Brainfuck program:
 
 ```bash
-neurofuck compile models/xor.json --output generated/xor.bf --scale 16
+lobotoml compile models/xor.json --output generated/xor.bf --scale 16
 ```
 
 ### 3. Run Inference on Brainfuck VM
@@ -127,10 +129,10 @@ Execute single-sample inference directly on the compiled `.bf` file:
 
 ```bash
 # Evaluate input [1.0, 0.0] -> Expected output: 1.0 (True)
-neurofuck run generated/xor.bf --input 1.0,0.0 --scale 16
+lobotoml run generated/xor.bf --input 1.0,0.0 --scale 16
 
 # Evaluate input [1.0, 1.0] -> Expected output: 0.0 (False)
-neurofuck run generated/xor.bf --input 1.0,1.0 --scale 16
+lobotoml run generated/xor.bf --input 1.0,1.0 --scale 16
 ```
 
 ### 4. Verify Bit-Exact Equivalence
@@ -138,7 +140,7 @@ neurofuck run generated/xor.bf --input 1.0,1.0 --scale 16
 Rigorously verify that Python floating-point, Python quantized fixed-point, and Brainfuck execution produce **identical bit-exact predictions**:
 
 ```bash
-neurofuck verify models/xor.json --dataset xor --scale 16
+lobotoml verify models/xor.json --dataset xor --scale 16
 ```
 
 Output:
@@ -159,7 +161,7 @@ Input           | Target  | PyFloat   | PyFixed   | BF Out    | Match?
 Render ASCII architectural mappings from neurons to memory tape cells:
 
 ```bash
-neurofuck visualize models/xor.json --scale 16
+lobotoml visualize models/xor.json --scale 16
 ```
 
 ---
@@ -191,7 +193,7 @@ The test suite verifies:
 - `test_nn.py`: Dense layers, backprop, numerical gradient checks, MSE/BCE loss.
 - `test_quantize.py`: Scaling conversions, integer fixed-point forward passes.
 - `test_serialization.py`: JSON model export/import round-trips.
-- `test_ir.py`: NIR instructions, reference interpreter, graph lowering.
+- `test_ir.py`: LIR instructions, reference interpreter, graph lowering.
 - `test_vm.py`: Brainfuck VM execution, infinite loop protection, pointer bounds.
 - `test_emitter.py`: Macro routines for addition, multiplication, division, dual-rail normalization.
 - `test_optimizer.py`: Peephole optimization rules and semantic preservation.

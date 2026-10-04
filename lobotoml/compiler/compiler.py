@@ -9,7 +9,7 @@ from .optimizer import BrainfuckOptimizer
 from .ir_generator import NNToIRCompiler
 
 
-class NeurofuckCompiler:
+class LobotoMLCompiler:
     """Deterministic end-to-end Neural Network to Brainfuck compiler."""
 
     def __init__(self, config: Optional[QuantizationConfig] = None):
@@ -170,3 +170,7 @@ class NeurofuckCompiler:
         if optimize:
             return BrainfuckOptimizer.optimize(raw_bf)
         return raw_bf
+
+
+# Backward-compatibility alias
+NeurofuckCompiler = LobotoMLCompiler

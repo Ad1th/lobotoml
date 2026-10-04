@@ -4,9 +4,9 @@ import unittest
 import tempfile
 from pathlib import Path
 import numpy as np
-from neurofuck.nn.model import Sequential
-from neurofuck.nn.layers import Dense
-from neurofuck.nn.quantize import QuantizedModel, QuantizationConfig
+from lobotoml.nn.model import Sequential
+from lobotoml.nn.layers import Dense
+from lobotoml.nn.quantize import QuantizedModel, QuantizationConfig
 
 
 class TestSerialization(unittest.TestCase):

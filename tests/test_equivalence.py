@@ -2,11 +2,11 @@
 
 import unittest
 import numpy as np
-from neurofuck.nn.model import Sequential
-from neurofuck.nn.layers import Dense
-from neurofuck.nn.quantize import QuantizedModel, QuantizationConfig, float_to_fixed
-from neurofuck.compiler.compiler import NeurofuckCompiler
-from neurofuck.vm.fast_vm import FastBrainfuckVM
+from lobotoml.nn.model import Sequential
+from lobotoml.nn.layers import Dense
+from lobotoml.nn.quantize import QuantizedModel, QuantizationConfig, float_to_fixed
+from lobotoml.compiler.compiler import LobotoMLCompiler
+from lobotoml.vm.fast_vm import FastBrainfuckVM
 
 
 class TestEquivalence(unittest.TestCase):
@@ -26,7 +26,7 @@ class TestEquivalence(unittest.TestCase):
         qconfig = QuantizationConfig(scale=16)
         qmodel = QuantizedModel.from_continuous_model(model, qconfig)
 
-        compiler = NeurofuckCompiler(qconfig)
+        compiler = LobotoMLCompiler(qconfig)
         bf_code = compiler.compile(qmodel, optimize=True)
         vm = FastBrainfuckVM(bf_code)
 
@@ -53,7 +53,7 @@ class TestEquivalence(unittest.TestCase):
         qconfig = QuantizationConfig(scale=16)
         qmodel = QuantizedModel.from_continuous_model(model, qconfig)
 
-        compiler = NeurofuckCompiler(qconfig)
+        compiler = LobotoMLCompiler(qconfig)
         code1 = compiler.compile(qmodel, optimize=True)
         code2 = compiler.compile(qmodel, optimize=True)
 

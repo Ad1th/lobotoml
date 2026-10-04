@@ -1,8 +1,8 @@
 """Tests for Brainfuck peephole optimizer."""
 
 import unittest
-from neurofuck.compiler.optimizer import BrainfuckOptimizer
-from neurofuck.vm.fast_vm import FastBrainfuckVM
+from lobotoml.compiler.optimizer import BrainfuckOptimizer
+from lobotoml.vm.fast_vm import FastBrainfuckVM
 
 
 class TestOptimizer(unittest.TestCase):

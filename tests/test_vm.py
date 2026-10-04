@@ -1,8 +1,8 @@
 """Tests for Brainfuck Virtual Machine execution and safety features."""
 
 import unittest
-from neurofuck.vm.vm import BrainfuckVM, VMConfig
-from neurofuck.vm.fast_vm import FastBrainfuckVM
+from lobotoml.vm.vm import BrainfuckVM, VMConfig
+from lobotoml.vm.fast_vm import FastBrainfuckVM
 
 
 class TestBrainfuckVM(unittest.TestCase):

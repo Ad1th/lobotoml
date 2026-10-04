@@ -1,4 +1,4 @@
-"""Brainfuck Virtual Machines for neurofuck execution and verification."""
+"""Brainfuck Virtual Machines for lobotoml execution and verification."""
 
 from .vm import BrainfuckVM, VMConfig, VMResult
 from .fast_vm import FastBrainfuckVM

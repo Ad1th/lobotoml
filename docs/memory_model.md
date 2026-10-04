@@ -1,6 +1,6 @@
-# Neurofuck Memory Model & Tape Architecture
+# LobotoML Memory Model & Tape Architecture
 
-This document formalizes the memory tape layout, register allocation strategy, and lifetime management used by the Neurofuck compiler to execute neural network inference on a 1D linear Brainfuck tape.
+This document formalizes the memory tape layout, register allocation strategy, and lifetime management used by the LobotoML compiler to execute neural network inference on a 1D linear Brainfuck tape.
 
 ---
 
@@ -14,7 +14,7 @@ with a single movable data pointer $\text{ptr} \in \mathbb{N}$ initialized to $\
 
 ### Non-Negative Invariant
 
-Because standard Brainfuck interpreters define cell values as unsigned integers ($c_i \ge 0$) and standard decrement loops `[-]` rely on zero-termination, **all physical tape cells in Neurofuck are guaranteed to be non-negative integers ($\ge 0$) at all times**.
+Because standard Brainfuck interpreters define cell values as unsigned integers ($c_i \ge 0$) and standard decrement loops `[-]` rely on zero-termination, **all physical tape cells in LobotoML are guaranteed to be non-negative integers ($\ge 0$) at all times**.
 
 Signed integer values ($x \in \mathbb{Z}$) are represented using **Dual-Rail Register Pairs**.
 
@@ -74,7 +74,7 @@ The tape is partitioned into distinct functional regions:
 
 ## 4. Register Allocation & Lifetime Analysis
 
-The Neurofuck compiler uses a deterministic linear-scan tape allocator:
+The LobotoML compiler uses a deterministic linear-scan tape allocator:
 
 1. **Sequential Allocation**: Variables are assigned monotonic cell indices.
 2. **Intermediate Cleanup**: Temporary accumulators and quotient registers are freed immediately after their values are consumed by the subsequent activation phase.

@@ -2,10 +2,10 @@
 
 import unittest
 import numpy as np
-from neurofuck.nn.layers import Dense
-from neurofuck.nn.activations import ReLU, Sigmoid, HardSigmoid, Linear, Step, get_activation
-from neurofuck.nn.loss import MSELoss, BinaryCrossEntropyLoss
-from neurofuck.nn.model import Sequential
+from lobotoml.nn.layers import Dense
+from lobotoml.nn.activations import ReLU, Sigmoid, HardSigmoid, Linear, Step, get_activation
+from lobotoml.nn.loss import MSELoss, BinaryCrossEntropyLoss
+from lobotoml.nn.model import Sequential
 
 
 class TestActivations(unittest.TestCase):

@@ -2,15 +2,15 @@
 
 import unittest
 import numpy as np
-from neurofuck.nn.quantize import (
+from lobotoml.nn.quantize import (
     QuantizationConfig,
     QuantizedLayer,
     QuantizedModel,
     float_to_fixed,
     fixed_to_float,
 )
-from neurofuck.nn.model import Sequential
-from neurofuck.nn.layers import Dense
+from lobotoml.nn.model import Sequential
+from lobotoml.nn.layers import Dense
 
 
 class TestQuantization(unittest.TestCase):

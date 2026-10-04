@@ -25,7 +25,7 @@ from .instructions import (
 
 
 class IRProgram:
-    """A linear sequence of Neurofuck Intermediate Representation (NIR) instructions."""
+    """A linear sequence of LobotoML Intermediate Representation (LIR) instructions."""
 
     def __init__(self, instructions: Optional[List[Instruction]] = None):
         self.instructions: List[Instruction] = instructions or []

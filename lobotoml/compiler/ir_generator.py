@@ -35,7 +35,7 @@ class NNToIRCompiler:
     def compile(self) -> IRProgram:
         """Generate NIR program from quantized model."""
         prog = IRProgram()
-        prog.comment("=== NEUROFUCK NEURAL NETWORK INTERMEDIATE REPRESENTATION ===")
+        prog.comment("=== LOBOTOML NEURAL NETWORK INTERMEDIATE REPRESENTATION ===")
         prog.comment(f"Fixed-point scale factor S = {self.scale}")
 
         first_layer = self.model.layers[0]

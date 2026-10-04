@@ -1,4 +1,4 @@
-"""Integration tests for neurofuck CLI commands."""
+"""Integration tests for lobotoml CLI commands."""
 
 import unittest
 import tempfile
@@ -23,7 +23,7 @@ class TestCLI(unittest.TestCase):
 
         # 1. Train
         res = subprocess.run(
-            [sys.executable, "-m", "neurofuck.cli", "train", "--dataset", "and", "--output", str(model_file), "--epochs", "2000", "--lr", "0.1"],
+            [sys.executable, "-m", "lobotoml.cli", "train", "--dataset", "and", "--output", str(model_file), "--epochs", "2000", "--lr", "0.1"],
             capture_output=True,
             text=True,
         )
@@ -32,7 +32,7 @@ class TestCLI(unittest.TestCase):
 
         # 2. Compile
         res = subprocess.run(
-            [sys.executable, "-m", "neurofuck.cli", "compile", str(model_file), "--output", str(bf_file), "--scale", "16"],
+            [sys.executable, "-m", "lobotoml.cli", "compile", str(model_file), "--output", str(bf_file), "--scale", "16"],
             capture_output=True,
             text=True,
         )
@@ -41,7 +41,7 @@ class TestCLI(unittest.TestCase):
 
         # 3. Verify
         res = subprocess.run(
-            [sys.executable, "-m", "neurofuck.cli", "verify", str(model_file), "--dataset", "and", "--scale", "16"],
+            [sys.executable, "-m", "lobotoml.cli", "verify", str(model_file), "--dataset", "and", "--scale", "16"],
             capture_output=True,
             text=True,
         )
@@ -50,7 +50,7 @@ class TestCLI(unittest.TestCase):
 
         # 4. Run single sample
         res = subprocess.run(
-            [sys.executable, "-m", "neurofuck.cli", "run", str(bf_file), "--input", "1.0,1.0", "--scale", "16"],
+            [sys.executable, "-m", "lobotoml.cli", "run", str(bf_file), "--input", "1.0,1.0", "--scale", "16"],
             capture_output=True,
             text=True,
         )

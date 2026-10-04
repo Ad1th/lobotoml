@@ -1,1 +1,1 @@
-"""Test suite for neurofuck."""
+"""Test suite for lobotoml."""

@@ -7,7 +7,7 @@ import numpy as np
 
 from ..nn.model import Sequential
 from ..nn.quantize import QuantizedModel, QuantizationConfig, float_to_fixed, fixed_to_float
-from ..compiler.compiler import NeurofuckCompiler
+from ..compiler.compiler import LobotoMLCompiler
 from ..vm.fast_vm import FastBrainfuckVM
 from ..vm.vm import BrainfuckVM
 
@@ -68,7 +68,7 @@ def run_comprehensive_benchmark(
     qconfig = QuantizationConfig(scale=scale)
     qmodel = QuantizedModel.from_continuous_model(model, qconfig)
 
-    compiler = NeurofuckCompiler(qconfig)
+    compiler = LobotoMLCompiler(qconfig)
     bf_code = compiler.compile(qmodel, optimize=True)
 
     vm = FastBrainfuckVM(bf_code)

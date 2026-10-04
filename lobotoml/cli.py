@@ -1,4 +1,4 @@
-"""Command-line interface for the neurofuck neural compiler system."""
+"""Command-line interface for the lobotoml neural compiler system."""
 
 import argparse
 import json
@@ -10,7 +10,7 @@ import numpy as np
 from .nn.model import Sequential
 from .nn.layers import Dense
 from .nn.quantize import QuantizationConfig, QuantizedModel, float_to_fixed, fixed_to_float
-from .compiler.compiler import NeurofuckCompiler
+from .compiler.compiler import LobotoMLCompiler
 from .compiler.ir_generator import NNToIRCompiler
 from .ir.visualizer import LayerVisualizer
 from .vm.vm import BrainfuckVM
@@ -80,7 +80,7 @@ def cmd_compile(args):
     qconfig = QuantizationConfig(scale=args.scale)
     qmodel = QuantizedModel.from_continuous_model(model, qconfig)
 
-    compiler = NeurofuckCompiler(qconfig)
+    compiler = LobotoMLCompiler(qconfig)
     bf_code = compiler.compile(qmodel, optimize=not args.no_optimize)
 
     if args.output:
@@ -150,7 +150,7 @@ def cmd_verify(args):
     qconfig = QuantizationConfig(scale=args.scale)
     qmodel = QuantizedModel.from_continuous_model(model, qconfig)
 
-    compiler = NeurofuckCompiler(qconfig)
+    compiler = LobotoMLCompiler(qconfig)
     bf_code = compiler.compile(qmodel, optimize=True)
     vm = FastBrainfuckVM(bf_code)
 
@@ -211,8 +211,8 @@ def cmd_benchmark(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="neurofuck",
-        description="Tiny neural-network inference system compiled into Brainfuck.",
+        prog="lobotoml",
+        description="LobotoML: Neural network inference with zero frontal lobe capacity (compiled to Brainfuck).",
     )
     subparsers = parser.add_subparsers(dest="command", required=True, help="Command to execute")
 

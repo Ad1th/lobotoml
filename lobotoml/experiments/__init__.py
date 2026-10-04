@@ -1,4 +1,4 @@
-"""Benchmarking and experimental evaluation for neurofuck."""
+"""Benchmarking and experimental evaluation for lobotoml."""
 
 from .benchmark import run_comprehensive_benchmark, BenchmarkResult
 

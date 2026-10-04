@@ -2,15 +2,15 @@
 
 import unittest
 import numpy as np
-from neurofuck.ir.instructions import (
+from lobotoml.ir.instructions import (
     Alloc, Free, SetConst, AddConst, SubConst, Move, Copy,
     Add, Sub, Mul, MulConst, DivConst, ReLU, Sigmoid, ReadInput, PrintOutput
 )
-from neurofuck.ir.graph import IRProgram
-from neurofuck.compiler.ir_generator import NNToIRCompiler
-from neurofuck.nn.model import Sequential
-from neurofuck.nn.layers import Dense
-from neurofuck.nn.quantize import QuantizedModel, QuantizationConfig
+from lobotoml.ir.graph import IRProgram
+from lobotoml.compiler.ir_generator import NNToIRCompiler
+from lobotoml.nn.model import Sequential
+from lobotoml.nn.layers import Dense
+from lobotoml.nn.quantize import QuantizedModel, QuantizationConfig
 
 
 class TestIR(unittest.TestCase):

@@ -3,16 +3,16 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "neurofuck"
+name = "lobotoml"
 version = "0.1.0"
-description = "Tiny neural-network inference system compiled into Brainfuck"
+description = "Tiny neural-network inference system compiled into Brainfuck: ML with zero frontal lobe capacity"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 authors = [
     {name = "Adith", email = "adith@example.com"}
 ]
-keywords = ["neural-network", "brainfuck", "compiler", "deep-learning", "esoteric", "fixed-point", "quantization"]
+keywords = ["neural-network", "brainfuck", "compiler", "deep-learning", "esoteric", "fixed-point", "quantization", "lobotoml"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -38,7 +38,8 @@ dev = [
 ]
 
 [project.scripts]
-neurofuck = "neurofuck.cli:main"
+lobotoml = "lobotoml.cli:main"
+neurofuck = "lobotoml.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["neurofuck*"]
+include = ["lobotoml*"]

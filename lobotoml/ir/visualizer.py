@@ -44,7 +44,7 @@ class LayerVisualizer:
         """Render ASCII computational graph for the quantized model."""
         lines = [
             "================================================================================",
-            "                   NEUROFUCK COMPILED NEURAL NETWORK GRAPH                      ",
+            "                    LOBOTOML COMPILED NEURAL NETWORK GRAPH                      ",
             f"                     (Fixed-Point Scale Factor S = {model.scale})                ",
             "================================================================================",
         ]

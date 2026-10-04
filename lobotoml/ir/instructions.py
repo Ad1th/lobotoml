@@ -1,4 +1,4 @@
-"""Instruction definitions for Neurofuck Intermediate Representation (NIR)."""
+"""Instruction definitions for LobotoML Intermediate Representation (LIR)."""
 
 from dataclasses import dataclass
 from typing import Optional
