@@ -39,8 +39,10 @@ class QuantizationConfig:
         )
 
 
-def float_to_fixed(val: Union[float, np.ndarray], scale: int = 64) -> Union[int, np.ndarray]:
+def float_to_fixed(val: Union[float, int, list, np.ndarray], scale: int = 64) -> Union[int, np.ndarray]:
     """Convert float value(s) to scaled fixed-point integer(s)."""
+    if isinstance(val, (list, tuple)):
+        return [int(round(float(v) * scale)) for v in val]
     if isinstance(val, np.ndarray):
         return np.round(val * scale).astype(np.int64)
     return int(round(float(val) * scale))

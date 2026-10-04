@@ -4,10 +4,12 @@ from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass
 class Instruction:
     """Base class for all NIR instructions."""
     comment: str = ""
+
+    def __init__(self, comment: str = ""):
+        self.comment = comment
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}()"
