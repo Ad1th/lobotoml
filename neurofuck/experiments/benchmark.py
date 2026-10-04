@@ -140,5 +140,5 @@ def run_comprehensive_benchmark(
         bf_code_length_bytes=len(bf_code.encode("utf-8")),
         model_param_count=param_count,
         avg_bf_steps=float(np.mean(bf_steps_list)),
-        max_tape_cells=max_tape_used,
+        max_bf_tape_cells=max_tape_used,
     )
